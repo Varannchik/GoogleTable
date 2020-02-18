@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link href="https://fonts.googleapis.com/css?family=Tomorrow&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>     
+    <div class="row no-gutters">
+        <div class="col-6 col-md-4 col-sm-12 col-12">
+            <div class="form-wrap">
+                <h1>Get in touch</h1>
+                <form target="_self" action="https://docs.google.com/spreadsheets/d/1ZPHP2myzltKco33Bz2DcWt4Jq4uP6s7fE5hPBXv4TkU/edit#gid=553659157" id="#form" onsubmit="return postToGoogle();">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="name" class="required">First name</label>
+                            <input type="text" class="form-control form-control-sm " id="name" name="entry.1167360909" required>
+                        </div>
+    
+                        <div class="form-group col-md-6">
+                            <label for="inputName2" class="required">Last name</label>
+                            <input type="text" class="form-control form-control-sm" id="inputName2" name="entry.562518350" required>
+                        </div>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="inputEmail4" class="required">Email</label>
+                        <input type="text" class="form-control form-control-sm" id="inputEmail4" name="entry.1768849565" required>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="inputPhone">Phone number</label>
+                        <input type="number" class="form-control form-control-sm" id="inputPhone" name="entry.1090311735">
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="selectCountry" class="required">Country</label>
+                        <select class="form-control form-control-sm" id="selectCountry" name="entry.1105294458" required>
+                            <option>Small select</option>
+                            <option>Small select2</option>
+                            <option>Small select3</option>
+                        </select>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="selectSubject" class="required">Subject</label>
+                        <select class="form-control form-control-sm" id="selectSubject" name="entry.612678201" required>
+                            <option>Subject</option>
+                            <option>Subject2</option>
+                            <option>Subject3</option>
+                        </select>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="inputCompany">Company</label>
+                        <input type="text" class="form-control form-control-sm" id="inputCompany" name="entry.867033815">
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="validationTextarea" class="required">Message</label>
+                        <textarea class="form-control " id="validationTextarea"  name="entry.239541522" required></textarea>
+                    </div>
+    
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck1" name="entry.2029352991_sentinel">
+                        <label class="custom-control-label" for="customCheck1">Sign up to recived Materialise promotional offers and news</label>
+                    </div>
+    
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck2" name="entry.2029352991">
+                        <label class="custom-control-label" for="customCheck2">
+                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis excepturi a mollitia ratione ducimus animi veritatis sequi.</span> 
+                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A fugiat necessitatibus cumque repellendus expedita, cupiditate impedit ipsam rerum odit perspiciatis pariatur magnam quas mollitia optio.</span></label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Send message</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-8">
+            <div class="box"></div>
+        </div>
+        
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script>
+        function postToGoogle(){
+            let name = jQuery("#name").val();
+            let lastName = jQuery("#inputName2").val();
+            let email = jQuery('#inputEmail4').val();
+            let phone = jQuery('#inputPhone').val();
+            let country = jQuery('#selectCountry option:selected').text();
+            let subject = jQuery('#selectSubject').val();
+            let company = jQuery('#inputCompany').val();
+            let msg = jQuery('#validationTextarea').val();
+            $.ajax({
+                url:"https://docs.google.com/forms/u/0/d/e/1FAIpQLSceg_EQZXwCVWRGX7vPMs2iAFHKFDvByfeVZqFQmbFR3G25BA/formResponse",
+                data:{
+                    "entry.1167360909":name,
+                    "entry.562518350":lastName,
+                    "entry.1768849565":email,
+                    "entry.1090311735":phone,
+                    "entry.1105294458":country,
+                    "entry.612678201":subject,
+                    "entry.867033815":company,
+                    "entry.239541522":msg
+                    },
+                type: 'POST',
+                dataType: "xml",
+                success: function(d){},
+                error: function (x,y,z){
+                    
+                }
+            })
+         }
+    </script>
+</body>
+</html>

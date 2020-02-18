@@ -1,0 +1,96 @@
+.box {
+  width: 100%;
+  height: 100vh;
+  background: #dedede;
+  background: url(img/03.jpg) no-repeat center;
+  background-size: cover;
+  position: relative;
+  font-family: 'Tomorrow', sans-serif;
+}
+@media (max-width: 768px) {
+  .box {
+    display: none;
+  }
+}
+.box::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background: rgba(3, 158, 215, 0.7);
+  z-index: 0;
+}
+h1 {
+  margin-bottom: 33px;
+  font-size: 22px;
+  font-family: 'Tomorrow', sans-serif;
+}
+.form-wrap {
+  width: 100%;
+  background: #fff;
+  padding: 22px 50px 47px 56px;
+  height: 100vh;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+@media (max-width: 768px) {
+  .form-wrap {
+    height: auto;
+    padding: 20px 15px;
+  }
+}
+.form-wrap .form-group {
+  margin-bottom: 9px;
+}
+.form-wrap label {
+  margin-bottom: 0;
+  font-size: 13px;
+}
+.form-wrap label span {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+.form-wrap label span:last-child {
+  margin-bottom: 0;
+}
+.form-wrap .required {
+  position: relative;
+}
+.form-wrap .required::after {
+  content: '*';
+  color: red;
+  font-size: 12px;
+}
+.form-wrap .form-control[required]:focus {
+  border-color: red;
+}
+.form-wrap .form-control-sm,
+.form-wrap .form-control {
+  border-radius: 0;
+}
+.form-wrap .form-control-sm:focus,
+.form-wrap .form-control:focus {
+  border-color: #4a97a9;
+  outline: none;
+  box-shadow: 0 0 0 1px rgba(195, 255, 255, 0.5);
+}
+.form-wrap button {
+  margin-top: 5px;
+  border-radius: 0;
+}
+.custom-control {
+  margin-bottom: 12px;
+}
+.custom-control label {
+  color: #847e80;
+  font-size: 11px;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.custom-control-label::before {
+  top: 0.22rem;
+}
